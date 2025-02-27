@@ -18,7 +18,7 @@ Specifications
 
 -  **Sensors**
 
-   -  InvenSense ICM20689 IMU (accel, gyro) on vibration isolating foam
+   -  InvenSense MPU600 IMU
    -  BMP280 barometers
 
 -  **Power**
@@ -27,7 +27,7 @@ Specifications
 
 -  **Interfaces**
 
-   -  4x PWM outputs
+   -  7x PWM outputs (6 motor outputs and 1 LED output)
    -  1x RC input PWM/PPM
    -  5x UARTs/serial for GPS and other peripherals
    -  1x I2C port for external compass
@@ -64,7 +64,7 @@ ESC telemetry input.
 RC Input
 ========
 
-The R3 pin, which by default is mapped to a timer input, can be used for all ArduPilot supported receiver protocols, except CRSF/ELRS and SRXL2 which require a true UART connection. However, FPort, when connected in this manner, will only provide RC without telemetry. 
+The R3 pin, which by default is mapped to a timer input, can be used for all ArduPilot supported receiver protocols, except CRSF/ELRS and SRXL2, which require a true UART connection. However, FPort, when connected in this manner, will only provide RC without telemetry. 
 
 - PPM/SBUS/DSM/SRXL attach to R3 pin.
 - FPort must use UART6 or UART4. See :ref:`common-FPort-receivers`.
@@ -101,7 +101,7 @@ The PWM is in 2 groups:
  - PWM 3 and 4 in group 2
 
 Channels within the same group need to use the same output rate, whether PWM or Dshot. If
-any channel in a group uses DShot then all channels in the group need
+any channel in a group uses DShot, then all channels in the group need
 to use DShot.
 
 Battery Monitoring
@@ -126,7 +126,7 @@ The KakuteF4 AIO does not have a built-in compass, but you can attach an externa
 Logging
 =======
 
-The KakuteF4 supports on-board data flash logging.
+The KakuteF4 supports onboard data flash logging.
 
 Firmware
 ========
@@ -137,14 +137,14 @@ Firmware for this board can be found `here <https://firmware.ardupilot.org>`_ in
 Loading ArduPilot onto the board
 ================================
 
-Initial firmware load can be done with DFU by plugging in USB with the
+Initial firmware load can be done with DFU by plugging in the USB with the
 bootloader button pressed. Then you should load the "with_bl.hex"
 firmware, using your favourite DFU loading tool.
 
-Once the initial firmware is loaded you can update the firmware using
+Once the initial firmware is loaded, you can update the firmware using
 any ArduPilot ground station software. Updates should be done with the xxxxxxxxxx.apj firmware files.
 
-If you are using a Kospi1 you may wish to load the default parameter file found `here <https://github.com/ArduPilot/ardupilot/blob/master/Tools/Frame_params/Holybro-kospi1.param>`__ or if you are using the Mission Planner it can be conveniently loaded from the Config/Tuning >> Full Parameter Tree screen.  Select "Holybro-kospi1.param" from the drop-down and then push the "Load Presaved" button.
+If you are using a Kospi1 you may wish to load the default parameter file found `here <https://github.com/ArduPilot/ardupilot/blob/master/Tools/Frame_params/Holybro-kospi1.param>`__ or if you are using the Mission Planner, it can be conveniently loaded from the Config/Tuning >> Full Parameter Tree screen.  Select "Holybro-kospi1.param" from the drop-down and then push the "Load Presaved" button.
 
 .. image:: ../../../images/holybro-kakutef4-load-default-params.png
     :target: ../_images/holybro-kakutef4-load-default-params.png
